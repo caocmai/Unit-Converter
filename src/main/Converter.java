@@ -3,23 +3,27 @@ package main;
 import java.util.Scanner;
 
 public class Converter {
+	public static Scanner scanner = new Scanner(System.in);
+
 	public static void main(String[] args) {
 		int menuSelection = 0;
 
 		while (menuSelection != 3) {
-			Scanner scanner = new Scanner(System.in);
 
 			System.out.println("1. Volumn Conversions");
 			System.out.println("2. Distance Conversions");
 			System.out.println("3. Quit");
 
-//			menuSelection = scanner.nextInt();
-			String nextIntString = scanner.nextLine(); 
-			menuSelection = Integer.parseInt(nextIntString); 
+			menuSelection = scanner.nextInt();
+//			String nextIntString = scanner.nextLine(); 
+//			menuSelection = Integer.parseInt(nextIntString); 
 			
 //			System.out.println(menuSelection);
-			
-			boolean isInputValid = checkValidInput(menuSelection, 1, 2);
+			if (menuSelection == 3) {
+				System.out.println("Good bye");
+				break;
+			}
+			boolean isInputValid = checkValidInput(menuSelection, 1, 3);
 			if (isInputValid) {
 				whichMenu(menuSelection);
 			} 
@@ -27,7 +31,7 @@ public class Converter {
 	}
 
 	public static void whichMenu(int num) {
-		Scanner scanner = new Scanner(System.in);
+//		Scanner scanner = new Scanner(System.in);
 		int selection = -1;
 		System.out.println("Please select an option:");
 		if (num == 1) {
@@ -46,7 +50,6 @@ public class Converter {
 		}
 
 		chosenConversion(selection);
-		scanner.close();
 	}
 
 	public static boolean checkValidInput(int selectedNum, int minStart, int maxEnd) {
@@ -60,46 +63,33 @@ public class Converter {
 	}
 
 	public static void cupsToTeaspoons() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter number of cups: ");
-		int cups = sc.nextInt();
+		int cups = scanner.nextInt();
 		int teaspoons = cups * 16;
 
-		String output = String.format("%d cups is %d teaspoons.", cups, teaspoons);
-
+		String output = String.format("%d cups is %d teaspoons. \n", cups, teaspoons);
 		System.out.println(output);
-
-//		sc.close();
 	}
 
 	public static void gallonsToImperialGallons() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter number of US gallons: ");
-		double gallons = sc.nextInt();
+		double gallons = scanner.nextInt();
 		double imperialGallons = gallons * 0.83267;
-		System.out.println(gallons + " US gallons is " + imperialGallons + " Imperial gallons.");
-
-		sc.close();
+		System.out.println(gallons + " US gallons is " + imperialGallons + " Imperial gallons." + "\n");
 	}
 
 	public static void feetToMeters() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter number of feet: ");
-		int feet = sc.nextInt();
+		int feet = scanner.nextInt();
 		double meters = feet / 12;
-		System.out.println(feet + " feet is " + meters + " meters.");
-
-		sc.close();
+		System.out.println(feet + " feet is " + meters + " meters." + "\n");
 	}
 
 	public static void milesToKilometer() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter number of miles: ");
-		double miles = sc.nextInt();
+		double miles = scanner.nextInt();
 		double kilometers = miles * 1.609344;
-		System.out.println(miles + " miles is " + kilometers + " kilometers.");
-
-		sc.close();
+		System.out.println(miles + " miles is " + kilometers + " kilometers." + "\n");
 	}
 
 	public static void chosenConversion(int num) {
