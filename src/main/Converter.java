@@ -31,6 +31,7 @@ public class Converter {
 		}
 	}
 
+	// should change name of this method so it doesn't clash with keyword
 	public static int parseInt(String strNum) {
 		if (isDigit.isNumeric(strNum)) {
 			return Integer.parseInt(strNum);
@@ -46,7 +47,6 @@ public class Converter {
 			do {
 				System.out.println("1. Cups to Teaspoons");
 				System.out.println("2. US Gallons to Imperial Gallons");
-//				selection = scanner.nextInt();
 
 				String input = scanner.next();
 				selection = parseInt(input);
@@ -127,6 +127,7 @@ public class Converter {
 	}
 
 	public static void chosenConversion(int num) {
+		// maybe loop here if I want to reuse the conversion
 		switch (num) {
 		case 1:
 			cupsToTeaspoons();
