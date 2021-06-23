@@ -10,7 +10,7 @@ public class Converter {
 		int menuSelection = -1;
 
 		while (menuSelection != 3) {
-			System.out.println("1. Volumn Conversions");
+			System.out.println("1. Volume Conversions");
 			System.out.println("2. Distance Conversions");
 			System.out.println("3. Quit");
 
@@ -109,7 +109,7 @@ public class Converter {
 			input = scanner.next();
 		} while (parseInt(input) == -1);
 
-		int feet = parseInt(input);
+		double feet = parseInt(input);
 		double meters = feet / 12;
 		System.out.println(feet + " feet is " + meters + " meters." + "\n");
 	}
